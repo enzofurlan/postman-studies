@@ -1,4 +1,6 @@
 # API testing with Postman
+[![Postman API Tests](https://github.com/enzofurlan/postman-studies/actions/workflows/postman-ci.yml/badge.svg)](https://github.com/enzofurlan/postman-studies/actions/workflows/postman-ci.yml)
+
 Simple repo to save API testing course progress.
 
 ## Requirements
