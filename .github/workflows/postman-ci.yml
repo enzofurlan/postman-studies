@@ -1,23 +1,17 @@
 name: Postman API Tests
 on: [push]
 jobs:
-  build:
+  postman-run:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [16.x]
-  steps:
-  - name: Check out repo
-    uses: actions/checkout@v3
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v3
 
-  - name: Set up node.js
-    uses: actions/setup-node@v3
-    with:
-      node-version: ${{ matrix.node-version }}
-      registry-url: https://registry.npmjs.org/
+      - name: Set up node.js
+        uses: actions/setup-node@v3
 
-  - name: Install dependencies
-    run: npm install
+      - name: Install dependencies
+        run: npm install
 
-  - name: Run Postman tests
-    run: newman run collections/Simple\ Grocery\ Store\ API.postman_collection.json -e environments/Production.postman_environment.json
+      - name: Run Postman tests
+        run: newman run collections/Simple\ Grocery\ Store\ API.postman_collection.json -e environments/Production.postman_environment.json
