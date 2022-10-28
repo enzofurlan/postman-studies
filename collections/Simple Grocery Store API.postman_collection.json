@@ -16,6 +16,10 @@
 							"pm.test(\"Status code is 200\", function () {",
 							"    pm.response.to.have.status(200);",
 							"});",
+							"",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"UP\");",
+							"});",
 							""
 						],
 						"type": "text/javascript"
@@ -39,11 +43,37 @@
 		},
 		{
 			"name": "GET /products",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Params must return the following json\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    var expectData = [",
+							"        {",
+							"            \"id\": 4643,",
+							"            \"category\": \"coffee\",",
+							"            \"name\": \"Starbucks Coffee Variety Pack, 100% Arabica\",",
+							"            \"inStock\": true",
+							"        }",
+							"    ]",
+							"    pm.expect(jsonData).to.eql(expectData);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/products?available=true",
+					"raw": "{{baseUrl}}/products?category=coffee&results=1&available=true",
 					"host": [
 						"{{baseUrl}}"
 					],
@@ -53,13 +83,11 @@
 					"query": [
 						{
 							"key": "category",
-							"value": "coffee",
-							"disabled": true
+							"value": "coffee"
 						},
 						{
 							"key": "results",
-							"value": "1",
-							"disabled": true
+							"value": "1"
 						},
 						{
 							"key": "available",
@@ -85,6 +113,20 @@
 							"    var jsonData = pm.response.json()",
 							"    pm.expect(jsonData.name).to.eql(\"Don Francisco Colombia Supremo Medium Roast\");",
 							"    pm.expect(jsonData.category).to.eql(\"coffee\");",
+							"});",
+							"",
+							"pm.test(\"Params must return the following json\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    var expectData = {",
+							"        \"id\": 4641,",
+							"        \"category\": \"coffee\",",
+							"        \"name\": \"Don Francisco Colombia Supremo Medium Roast\",",
+							"        \"manufacturer\": \"Don Francisco\",",
+							"        \"price\": 9.76,",
+							"        \"current-stock\": 15,",
+							"        \"inStock\": true",
+							"    }",
+							"    pm.expect(jsonData).to.eql(expectData);",
 							"});",
 							""
 						],
@@ -121,7 +163,13 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.collectionVariables.set(\"cartId\", \"_ELG8TpZq0RKf8DeJw1Gm\");"
+							"pm.test(\"Successful POST request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);",
+							"});",
+							"",
+							"var jsonData = pm.response.json()",
+							"",
+							"pm.collectionVariables.set(\"cartId\", jsonData.cartId);"
 						],
 						"type": "text/javascript"
 					}
@@ -155,7 +203,11 @@
 							"",
 							"// for (let prop of jsonData.items){",
 							"//     if (prop.id == 249780566);",
-							"// }"
+							"// }",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
 						],
 						"type": "text/javascript"
 					}
@@ -185,6 +237,19 @@
 		},
 		{
 			"name": "GET /carts/:cartId/items",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -361,6 +426,23 @@
 		},
 		{
 			"name": "POST /api-clients",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(20);",
+							"});",
+							"",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"accessToken\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [
@@ -372,7 +454,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n   \"clientName\": \"Enzo F\",\n   \"clientEmail\": \"enzo_test@example.com\"\n}",
+					"raw": "{\n   \"clientName\": \"Enzo F\",\n   \"clientEmail\": \"{{$randomEmail}}\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -429,6 +511,19 @@
 		},
 		{
 			"name": "GET /orders",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"auth": {
 					"type": "bearer",
