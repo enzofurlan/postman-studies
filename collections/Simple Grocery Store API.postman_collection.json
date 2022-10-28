@@ -116,6 +116,17 @@
 		},
 		{
 			"name": "POST /carts",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.collectionVariables.set(\"cartId\", \"_ELG8TpZq0RKf8DeJw1Gm\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -133,6 +144,23 @@
 		},
 		{
 			"name": "GET /carts/:cartId",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let jsonData = pm.response.json();",
+							"",
+							"let item_props;",
+							"",
+							"for (let prop of jsonData.items){",
+							"    if (prop.id == 249780566);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
