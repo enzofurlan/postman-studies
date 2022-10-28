@@ -1,0 +1,372 @@
+{
+	"id": "b234172b-f605-4cc4-993c-74c7103e2e60",
+	"name": "Simple Grocery Store API",
+	"timestamp": "2022-10-28T03:12:01.328Z",
+	"collection_id": "23564442-1219e78b-bc5c-4c41-b038-358a8318ae60",
+	"folder_id": 0,
+	"environment_id": "23564442-eb833c2d-c59d-4d6d-a0b4-617bcb62e3c6",
+	"totalPass": 3,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "a6d99208-9623-4dff-bd47-80994e3acf41",
+			"name": "GET /status",
+			"url": "https://simple-grocery-store-api.glitch.me/status",
+			"time": 1284,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1284
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "f29f8785-b930-43e3-8bc0-9d2f04588218",
+			"name": "GET /products",
+			"url": "https://simple-grocery-store-api.glitch.me/products?available=true",
+			"time": 170,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				170
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "48f7f323-d48a-4548-8d24-7b87ad0f2f69",
+			"name": "GET /products/:productId",
+			"url": "https://simple-grocery-store-api.glitch.me/products/4641",
+			"time": 251,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Product must have a name and a category": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Product must have a name and a category": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				251
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Product must have a name and a category": true
+				}
+			]
+		},
+		{
+			"id": "e265ea7e-e61d-409d-82ed-bac23a380d9e",
+			"name": "POST /carts",
+			"url": "https://simple-grocery-store-api.glitch.me/carts",
+			"time": 177,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				177
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "ae1e2eeb-66c6-4809-98b1-177dd6f33d42",
+			"name": "GET /carts/:cartId",
+			"url": "https://simple-grocery-store-api.glitch.me/carts/_ELG8TpZq0RKf8DeJw1Gm",
+			"time": 201,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				201
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "080adb7f-2485-4ef9-9989-99da45a67acb",
+			"name": "GET /carts/:cartId/items",
+			"url": "https://simple-grocery-store-api.glitch.me/carts/_ELG8TpZq0RKf8DeJw1Gm/items",
+			"time": 100,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				100
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "1ca39e22-ba7f-419e-b4de-be45d47d5b88",
+			"name": "POST /carts/:cartId/items",
+			"url": "https://simple-grocery-store-api.glitch.me/carts/_ELG8TpZq0RKf8DeJw1Gm/items",
+			"time": 102,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				102
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "69bf5473-e792-4ac0-b342-942ed843ecc1",
+			"name": "DELETE /carts/:cartId/items/:itemId",
+			"url": "https://simple-grocery-store-api.glitch.me/carts/_ELG8TpZq0RKf8DeJw1Gm/items/136531096",
+			"time": 122,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				122
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "7923124c-43b3-4318-9c0e-ecee330489ba",
+			"name": "PATCH /carts/:cartId/items/:itemId",
+			"url": "https://simple-grocery-store-api.glitch.me/carts/_ELG8TpZq0RKf8DeJw1Gm/items/136531096",
+			"time": 101,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				101
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "7cb24f25-e811-4018-83b2-4e2d880d381a",
+			"name": "PUT /carts/:cartId/items/:itemId",
+			"url": "https://simple-grocery-store-api.glitch.me/carts/_ELG8TpZq0RKf8DeJw1Gm/items/136531096",
+			"time": 98,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				98
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "60572d0b-ae59-4a69-9c66-102fa6f95a17",
+			"name": "POST /api-clients",
+			"url": "https://simple-grocery-store-api.glitch.me/api-clients",
+			"time": 99,
+			"responseCode": {
+				"code": 409,
+				"name": "Conflict"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				99
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "0c76c617-bb22-4d15-974e-b02bd9a9584f",
+			"name": "POST /orders",
+			"url": "https://simple-grocery-store-api.glitch.me/orders",
+			"time": 153,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				153
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "18e05480-bb36-4dfb-9259-66de32b433c1",
+			"name": "GET /orders",
+			"url": "https://simple-grocery-store-api.glitch.me/orders",
+			"time": 102,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				102
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "cce3c788-927a-4363-ab77-28954cbf7638",
+			"name": "DELETE /orders/:orderId",
+			"url": "https://simple-grocery-store-api.glitch.me/orders/FvNRRHqp8vPQoHPT6ux8i",
+			"time": 100,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				100
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "243e9baf-ef34-46fb-aeb3-2ccb81b33ca9",
+			"name": "PATCH /orders/:orderId",
+			"url": "https://simple-grocery-store-api.glitch.me/orders/uExooZbzGI1fLjbE-BJ7D",
+			"time": 120,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				120
+			],
+			"allTests": [
+				{}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 3180,
+	"collection": {
+		"requests": [
+			{
+				"id": "a6d99208-9623-4dff-bd47-80994e3acf41",
+				"method": "GET"
+			},
+			{
+				"id": "f29f8785-b930-43e3-8bc0-9d2f04588218",
+				"method": "GET"
+			},
+			{
+				"id": "48f7f323-d48a-4548-8d24-7b87ad0f2f69",
+				"method": "GET"
+			},
+			{
+				"id": "e265ea7e-e61d-409d-82ed-bac23a380d9e",
+				"method": "POST"
+			},
+			{
+				"id": "ae1e2eeb-66c6-4809-98b1-177dd6f33d42",
+				"method": "GET"
+			},
+			{
+				"id": "080adb7f-2485-4ef9-9989-99da45a67acb",
+				"method": "GET"
+			},
+			{
+				"id": "1ca39e22-ba7f-419e-b4de-be45d47d5b88",
+				"method": "POST"
+			},
+			{
+				"id": "69bf5473-e792-4ac0-b342-942ed843ecc1",
+				"method": "DELETE"
+			},
+			{
+				"id": "7923124c-43b3-4318-9c0e-ecee330489ba",
+				"method": "PATCH"
+			},
+			{
+				"id": "7cb24f25-e811-4018-83b2-4e2d880d381a",
+				"method": "PUT"
+			},
+			{
+				"id": "60572d0b-ae59-4a69-9c66-102fa6f95a17",
+				"method": "POST"
+			},
+			{
+				"id": "0c76c617-bb22-4d15-974e-b02bd9a9584f",
+				"method": "POST"
+			},
+			{
+				"id": "18e05480-bb36-4dfb-9259-66de32b433c1",
+				"method": "GET"
+			},
+			{
+				"id": "cce3c788-927a-4363-ab77-28954cbf7638",
+				"method": "DELETE"
+			},
+			{
+				"id": "243e9baf-ef34-46fb-aeb3-2ccb81b33ca9",
+				"method": "PATCH"
+			}
+		]
+	}
+}

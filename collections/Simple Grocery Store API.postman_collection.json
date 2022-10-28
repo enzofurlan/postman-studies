@@ -153,9 +153,9 @@
 							"",
 							"let item_props;",
 							"",
-							"for (let prop of jsonData.items){",
-							"    if (prop.id == 249780566);",
-							"}"
+							"// for (let prop of jsonData.items){",
+							"//     if (prop.id == 249780566);",
+							"// }"
 						],
 						"type": "text/javascript"
 					}
